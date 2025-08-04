@@ -266,7 +266,7 @@ void compare_archives( const ario& archive1, const ario& archive2 )
 {
     ASSERT_EQ( archive1.members.size(), archive2.members.size() );
 
-    for ( size_t i = 0; i < archive1.members.size(); ++i ) {
+    for ( auto i = 0; i < archive1.members.size(); ++i ) {
         EXPECT_EQ( archive1.members[i].name, archive2.members[i].name );
         EXPECT_EQ( archive1.members[i].date, archive2.members[i].date );
         EXPECT_EQ( archive1.members[i].uid, archive2.members[i].uid );

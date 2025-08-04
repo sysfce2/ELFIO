@@ -869,7 +869,7 @@ class ario
     //!< This is a map from symbol names to member indexes
     //!< The member index is the index in the members_ vector
     //!< This allows for quick lookup of symbols by name
-    std::unordered_map<std::string, uint32_t> symbol_table;
+    std::unordered_map<std::string, size_t> symbol_table;
     std::string string_table; //!< Long names for members
 };
 

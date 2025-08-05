@@ -22,12 +22,6 @@ jobs:
         build_type: [Release, Debug]
         cpp_compiler: [g++, clang++, cl]
         include:
-          - os: windows-latest
-            cpp_compiler: cl
-            c_compiler: cl
-          - os: windows-2022
-            cpp_compiler: cl
-            c_compiler: cl
           - os: ubuntu-latest
             cpp_compiler: g++
             c_compiler: gcc

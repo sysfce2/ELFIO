@@ -381,7 +381,7 @@ class ario
                 std::optional<std::reference_wrapper<const ario::Member>>&
                     added_member )
     {
-        auto& new_member = members_.emplace_back( member );
+        auto& new_member   = members_.emplace_back( member );
         new_member.size    = data.size();
         new_member.pstream = nullptr;
         new_member.set_new_data( data );
@@ -432,11 +432,13 @@ class ario
     //! @return Error object indicating success or failure
     Result load_header()
     {
-        std::string magic( sizeof( ARCH_MAGIC ), ' ' );
-        pstream->read( &magic[0], sizeof( ARCH_MAGIC ) );
-        if ( magic != ARCH_MAGIC ) {
+        auto        arch_magic      = std::string( ARCH_MAGIC );
+        auto        arch_magic_size = arch_magic.size();
+        std::string magic( arch_magic_size, ' ' );
+        pstream->read( &magic[0], arch_magic_size );
+        if ( magic != arch_magic ) {
             return { std::string( "Invalid archive format. Expected magic: " ) +
-                     ARCH_MAGIC };
+                     arch_magic };
         }
 
         return {};
@@ -816,7 +818,7 @@ class ario
             if ( short_name.size() < 3 ) {
                 return std::nullopt;
             }
-            auto offset_in_dir = 0;
+            size_t offset_in_dir = 0;
             try {
                 offset_in_dir = std::stoul( std::string(
                     short_name.substr( 1, short_name.size() - 2 ) ) );

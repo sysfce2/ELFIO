@@ -266,7 +266,7 @@ void compare_archives( const ario& archive1, const ario& archive2 )
 {
     ASSERT_EQ( archive1.members.size(), archive2.members.size() );
 
-    for ( auto i = 0; i < archive1.members.size(); ++i ) {
+    for ( size_t i = 0; i < archive1.members.size(); ++i ) {
         EXPECT_EQ( archive1.members[i].name, archive2.members[i].name );
         EXPECT_EQ( archive1.members[i].date, archive2.members[i].date );
         EXPECT_EQ( archive1.members[i].uid, archive2.members[i].uid );
@@ -542,7 +542,7 @@ TEST( ARIOTest, new_text_lib )
     std::vector<std::string> ref_names = {
         "123456789012345", "1234567890123456",   "12345678901234567",
         "12345",           "123456789012345678", "1234567" };
-    for ( auto i = 0; i < loaded_archive.members.size(); i++ ) {
+    for ( size_t i = 0; i < loaded_archive.members.size(); i++ ) {
         EXPECT_EQ( loaded_archive.members[i].name, ref_names[i] );
         EXPECT_EQ( loaded_archive.members[i].size, 5 );
         EXPECT_EQ( loaded_archive.members[i].data(), "data\n" );

@@ -28,6 +28,18 @@
             "miDebuggerPath": "/usr/bin/gdb"
         },
         {
+          
+            "name": "(Windows) Launch",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/tests/Debug/ELFIOTest.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build/tests",
+            "environment": [],
+            "console": "externalTerminal"
+          },
+        {
             "name": "Run ELF Dump",
             "type": "cppdbg",
             "request": "launch",

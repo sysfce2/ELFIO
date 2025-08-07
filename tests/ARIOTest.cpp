@@ -53,7 +53,7 @@ TEST( ARIOTest, wrong_file_magic )
 TEST( ARIOTest, simple_text_load )
 {
     ario archive;
-    ASSERT_EQ( archive.load( "ario/simple_text.a" ).ok(), true );
+    ASSERT_EQ( archive.load( "ario/simple_text.a" ).what(), {} );
     ASSERT_EQ( archive.members.size(), 6 );
     EXPECT_EQ( archive.members[0].name, "hello.c" );
     EXPECT_EQ( archive.members[0].size, 45 );
